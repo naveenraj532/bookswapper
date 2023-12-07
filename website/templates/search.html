@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <title>Book Swapper</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Poppins';
+      background: linear-gradient(135deg, #ffffff, #ffffff);
+    }
+
+    .navbar {
+      padding: 5px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+    }
+
+    .nav-item {
+      padding: 2.5px;
+    }
+
+    .content-box {
+      width: 60%;
+      height: 20%;
+      background: #ffffff;
+      color: #020202;
+      margin-top: 10%;
+      margin-left: 50%;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      padding: 40px 30px;
+      border: 3px solid black;
+      border-radius: 15px;
+    }
+
+    .content-box input {
+      width: inherit;
+      margin-bottom: 20px;
+    }
+
+    .rows-1 {
+      width: 98%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-left: 1%;
+    }
+
+    .rows-4 {
+      display: flex;
+      justify-content: center;
+    }
+
+    .display {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #requestBox {
+      display: none;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+
+    }
+
+    .border {
+      width: 50%;
+      padding: 1%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">Book Swapper</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li> -->
+        <li class="nav-item active">
+          <a class="nav-link active" href="/">Search Books</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/add">Add Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/requests">Recieved</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/myrequests">Sent</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+
+      </ul>
+      <a class="btn btn-outline-success my-2 my-sm-0" href="/logout">Logout</a>
+    </div>
+  </nav>
+  <div class="display">
+    <div class="content-box">
+      <form type="search">
+        <div class="rows-1">
+          <div class="form-group">
+            <input type="text" class="form-control" name="bookname" id="bookname" placeholder="Search for a book . . ."
+              required>
+          </div>
+        </div>
+        <div class="rows-4">
+          <button type="submit" class="btn btn-primary">Search 🔎</button>
+        </div>
+      </form>
+    </div>
+    <br>
+    <div class="container">
+      {% if books %}
+      {% for book in books %}
+      {% for user in users %}
+      {% if book.user_id == user.id %}
+      <div class="border border-dark rounded">
+        <p>
+          {{"Book Name : "}} {{book.bookname}} <br>
+          {{"Book Author : "}} {{book.authorname}} <br>
+          {{"Owner name : "}} {{user.username}} <br>
+          {{"Owner email : "}} {{user.email}} <br>
+          {{"Owner Phone : "}} {{user.phonenumber}} <br>
+          
+          <a href="{{url_for('views.requestBook',p1=book.id, p2 = book.user_id)}}">Request</a>
+        </p>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+      {% endif %}
+    </div>
+    <script>
+      var requestButtons = document.querySelectorAll('.request-button');
+      requestButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var targetId = this.getAttribute('data-target');
+          var requestBox = this.parentElement.querySelector('.' + targetId);
+          if (requestBox.style.display === 'none' || requestBox.style.display === '') {
+            requestBox.style.display = 'flex';
+            this.style.display = 'none';
+          }
+        });
+      });
+    </script>
+</body>
+
+</html>

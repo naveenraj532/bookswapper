@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <title>Book Swapper</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    body {
+      font-family: 'Poppins';
+      background: linear-gradient(135deg, #86858d, #d8c3d0);
+    }
+
+    .navbar {
+      padding: 5px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+    }
+
+    .nav-item {
+      padding: 2.5px;
+    }
+
+    .content-box {
+      width: 60%;
+      height: 55%;
+      background: #ffffff;
+      color: #020202;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      padding: 40px 30px;
+      border: 3px solid black;
+      border-radius: 15px;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0 0 20px;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .content-box input {
+      width: inherit;
+      margin-bottom: 20px;
+    }
+
+    .rows-1 {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-left: 1%;
+    }
+
+    .rows-1 {
+      width: 98%;
+    }
+
+    .rows-2 {
+      width: 98%;
+      display: flex;
+    }
+
+    .rows-3 {
+      display: flex;
+      margin-bottom: 2%;
+    }
+
+    .rows-4 {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">Book Swapper</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link active" href="/">Search Books</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/add">Add Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/requests">Recieved</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/myrequests">Sent</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+
+      </ul>
+      <a class="btn btn-outline-success my-2 my-sm-0" href="/logout">Logout</a>
+    </div>
+  </nav>
+
+
+  <div class="content-box">
+    <h1>Add Books 📚</h1>
+    <form method="post">
+      <div class="rows-1">
+        <div class="form-group">
+          <label for="bookname">Book Name</label>
+          <input type="text" class="form-control" name="bookname" id="bookname" placeholder="Enter Bookname" required>
+        </div>
+      </div>
+
+      <div class="rows-2">
+        <div class="form-group">
+          <label for="authorname">Author Name</label>
+          <input type="text" class="form-control" name="authorname" id="authorname" placeholder="Enter Author Name"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <input type="text" class="form-control" name="genre" id="genre" placeholder="Enter Genre" required>
+        </div>
+      </div>
+
+      <div class="rows-3">
+        <div class="form-group">
+          <label for="review">Review</label>
+          <textarea class="form-control" name="review" id="review" placeholder="Enter Review" required></textarea>
+        </div>
+      </div>
+
+      <div class="rows-4">
+        <button type="submit" class="btn btn-primary">Add ➕</button>
+      </div>
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <title>Book Swapper - My Requests</title>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    body {
+        width: 100%;
+        height: 100%;
+        font-family: 'Poppins';
+        background: linear-gradient(135deg, #ffffff, #ffffff);
+    }
+
+    .navbar {
+        padding: 5px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .nav-item {
+        padding: 2.5px;
+    }
+
+    .content-box {
+        width: 60%;
+        height: 20%;
+        background: #ffffff;
+        color: #020202;
+        margin-top: 35%; /* Adjusted margin-top value */
+        margin-left: 50%;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        padding: 40px 30px;
+        border: 3px solid black;
+        border-radius: 15px;
+    }
+
+    .content-box input,
+    .content-box textarea {
+        width: inherit;
+        margin-bottom: 20px;
+    }
+
+    .request-box {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 10px;
+    }
+</style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">Book Swapper</a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link active" href="/">Search Books</a>
+                  </li>
+          
+                  <li class="nav-item">
+                    <a class="nav-link" href="/add">Add Books</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/requests">Recieved</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/myrequests">Sent</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                  </li>
+
+            </ul>
+            <a class="btn btn-outline-success my-2 my-sm-0" href="/logout">Logout</a>
+        </div>
+    </nav>
+    <div class="content-box">
+        {% if user_names %}
+            {% for i in range(user_names|length - 1, -1, -1) %}
+                <div class="request-box">
+                    <div>
+                        <p>User: {{ user_names[i] }}</p>
+                        <p>Book: {{ book_names[i] }}</p>
+                        <p>Message: {{ messages[i] }}</p>
+                        <p>Email: {{ emails[i] }}</p>
+                        <p>PhoneNumber: {{ phonenumbers[i] }}</p>
+                    </div>
+                    <div class="button-group">
+                        <p>Status: {{ status[i] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No sent requests found.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

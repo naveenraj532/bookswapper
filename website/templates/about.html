@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <title>Book Swapper</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #86858d, #d8c3d0);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            padding: 5px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }   
+        .nav-item{
+            padding: 2.5px;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            min-width: 45%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .container h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin: 20px auto;
+        }
+        .container-layout {
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">Book Swapper</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link active" href="/">Search Books</a>
+                  </li>
+          
+                  <li class="nav-item">
+                    <a class="nav-link" href="/add">Add Books</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/requests">Recieved</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/myrequests">Sent</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                  </li>
+
+            </ul>
+            <a class="btn btn-outline-success my-2 my-sm-0" href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <img src="https://freesvg.org/img/1488216538.png" alt="Logo">
+
+
+    <div class="container-layout">
+        <div class="container">
+            <div class="section">
+                <p>An initiative taken by a triad from IT department to increase the usage of books and to reduce the shortage in availability of books within the SSN community.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <p class="section-title">The Importance of Books</p>
+                <p>Humans rely on books for information and knowledge. They have helped mankind evolve and have a deep impact on us and are responsible for uplifting our spirits. People say that books are their best friends. They are very useful for mankind and have enabled it to evolve. Books are a great source of information and knowledge. They give us a deep feeling of well-being.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <p class="section-title">The Challenge of Availability</p>
+                <p>The benefits of books are well known. They have contributed to the evolution of mankind and have helped mankind to progress. Books have a profound impact on our lives and improve our moods. Currently, only 17–22 percent of books available in classroom collections are Nonfiction which gets declining every decade. A community consisting of a large member might have many utilized Fiction and Nonfiction books.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <p class="section-title">The Book Swapper Solution</p>
+                <p>A member in a community might require a book where another member in the same community might have it and could be anonymous, and there could be a high possibility that the person could be an outsider. The idea is to develop a portal that can create interrelation between the community members and exchange information about the books they own. The community members should be able to list the books they are willing to exchange with others in the forum, and the database should store the information about the books listed by every user. Members should be able to search for the required book, and if it is available, the owner of the book can be contacted, private discussion can be done between them, and exchanges can be initiated.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
